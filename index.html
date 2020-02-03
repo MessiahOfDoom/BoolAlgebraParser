@@ -1,11 +1,96 @@
 <!DOCTYPE html>
 <head>
     <style>
+        textarea {
+            resize: none;
+            background-color: #2d2d2d;
+            color: #FF00FF;
+            font-size: 16px;
+        }
+
+        #container{
+                display:table;
+                margin: 0 auto;
+                text-align: center;
+        }
+        button{
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font: 24px Arial Black, sans-serif;
+            color: #FF00FF;
+            background: #2d2d2d;
+            box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.3) ;
+        }
+        button:focus {
+            outline-color: #FF00FF;
+        }
+        textarea:focus {
+            outline-color: #FF00FF;
+        }
+
+        :root{
+            --bg-0: #2d2d2d;
+            --bg-1: #2d2d2d;
+            --txt-0: #E57D1B;
+            --txt-1: #96b946;
+            background-color: #1d1d1d;
+        }
+
+        table{
+            border: 3px solid #000000;
+            text-align: left;
+            border-collapse: collapse;
+            table-layout: auto;
+        }
+
+        table td, table th {
+            border: 1px solid #000000;
+            padding: 5px 4px;
+        }
+        table tbody td {
+            font: 18px Arial, sans-serif;
+        }
+        table thead {
+            background: #3d3d3d;
+            border-bottom: 3px solid #000000;
+        }
+        table thead th {
+            font-size: 22px;
+            font-weight: bold;
+            color: #FF00FF;
+            text-align: left;
+        }
+
+        .td_false {
+            background-color: var(--bg-0);
+            color: var(--txt-0);
+        }
+
+        .td_true {
+            background-color: var(--bg-1);
+            color: var(--txt-1);
+        }
+        p {
+            font: 18px Arial, sans-serif;
+            color: #FF00FF;
+        }
+
     </style>
+    <script src="./boolalgebra_parser.js"></script>
+    <script src="./button_logic.js"></script>
 </head>
 <body>
+    <div class="container">
+        <textarea id="boolAlgInput" rows="5" cols="80"></textarea><br>
+        <div class="btnContainer">
+            <button id="buttonParse" onclick="parse()">Parse</button>
+            <button id="buttonColor" onclick="toggleColorMode()">Toggle Color Mode</button>
+            <button id="buttonColorToggle" onclick="toggleColors()">Disable Colors</button>
+        </div><br>
+        <div id="truthTable"></div><br>
+        <p id="errorName"></p>
+        <p id="errorMsg"></p>
+    </div>
 
-
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 </body>
